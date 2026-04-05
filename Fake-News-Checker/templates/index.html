@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake News Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="glass-card">
+        <h1>📰 Fake News Checker</h1>
+
+        <form method="POST">
+            <textarea name="news" rows="5" placeholder="Enter news text..." required></textarea>
+            <button class="custom-btn">Check News</button>
+        </form>
+
+        {% if result %}
+        <div class="result-box">
+            <h3>{{ result }} (Confidence: {{ confidence }}%)</h3>
+            <ul>
+                {% for r in reasons %}
+                <li>{{ r }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

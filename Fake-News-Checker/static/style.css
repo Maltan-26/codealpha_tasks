@@ -1,0 +1,81 @@
+/* Body background gradient */
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #f5e6ff, #ffd6f0, #ffe6d9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Glass card / main container */
+.glass-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    padding: 40px 30px;
+    width: 450px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    color: #a851f5; /* pastel purple */
+    margin-bottom: 25px;
+}
+
+/* Textarea */
+textarea {
+    width: 100%;
+    border-radius: 15px;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    resize: none;
+}
+
+/* Button */
+.custom-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    background: linear-gradient(90deg, #f5a1ff, #a851f5);
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.custom-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(168, 81, 245, 0.4);
+}
+
+/* Result box */
+.result-box {
+    background: rgba(255,255,255,0.95);
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    animation: fadeIn 0.8s ease-in-out;
+    color: #333;
+}
+
+/* List in result */
+ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
