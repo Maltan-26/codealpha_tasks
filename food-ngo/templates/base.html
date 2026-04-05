@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Share leftover food with NGOs instead of waste. PlateForward connects donors with verified organizations.">
+  <title>{% block title %}PlateForward — Food to NGOs, Not the Bin{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="{{ url_for('index') }}">
+        <span class="brand-icon d-inline-flex align-items-center justify-content-center rounded-3">
+          <i class="bi bi-heart-pulse-fill"></i>
+        </span>
+        <span class="brand-text">PlateForward</span>
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#why">Why</a></li>
+          <li class="nav-item"><a class="nav-link" href="#how">How it works</a></li>
+          <li class="nav-item"><a class="nav-link" href="#impact">Impact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#donate">Donate food</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ngos">For NGOs</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-accent btn-sm px-3 rounded-pill" href="#donate">Offer a meal</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer-glow pt-5 pb-4 mt-0">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <span class="brand-icon d-inline-flex align-items-center justify-content-center rounded-3">
+              <i class="bi bi-heart-pulse-fill"></i>
+            </span>
+            <span class="brand-text text-white">PlateForward</span>
+          </div>
+          <p class="text-white-50 small mb-3">Connecting surplus food with people who need it. Less waste, more dignity.</p>
+          <div class="d-flex gap-3">
+            <a href="#" class="social-link" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6 class="text-uppercase text-accent-2 small fw-semibold mb-3">Explore</h6>
+          <ul class="list-unstyled small footer-links">
+            <li><a href="#why">Our mission</a></li>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#impact">Impact</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h6 class="text-uppercase text-accent-2 small fw-semibold mb-3">Contact</h6>
+          <ul class="list-unstyled small text-white-50 mb-0">
+            <li class="mb-2"><i class="bi bi-envelope me-2 text-accent"></i>hello@plateforward.example</li>
+            <li><i class="bi bi-telephone me-2 text-accent"></i>+1 (555) 014-2730</li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h6 class="text-uppercase text-accent-2 small fw-semibold mb-3">Newsletter</h6>
+          <p class="small text-white-50 mb-2">Tips for safe donation and local drives.</p>
+          <form class="d-flex gap-2 flex-column flex-sm-row" action="#" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed!';">
+            <input type="email" class="form-control form-control-sm footer-input" placeholder="Your email" required>
+            <button type="submit" class="btn btn-accent btn-sm rounded-pill px-3">Join</button>
+          </form>
+        </div>
+      </div>
+      <hr class="border-secondary border-opacity-25 my-4">
+      <p class="small text-white-50 text-center mb-0">&copy; {{ current_year }} PlateForward. Built for community food rescue.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

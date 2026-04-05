@@ -1,0 +1,380 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section id="home" class="hero position-relative overflow-hidden">
+  <div class="hero-bg"></div>
+  <div class="hero-orbs" aria-hidden="true"></div>
+  <div class="container position-relative py-5 hero-pad">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      <div class="row justify-content-center mb-4">
+        <div class="col-lg-10">
+          {% for category, message in messages %}
+            {% if category in ['success', 'danger', 'warning', 'info'] %}
+            <div class="alert alert-{{ category }} border-0 rounded-4 shadow-sm mb-2 alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    {% endwith %}
+    <div class="row align-items-center min-vh-50 g-5">
+      <div class="col-lg-6">
+        <span class="badge rounded-pill bg-white bg-opacity-10 text-white border border-white border-opacity-25 px-3 py-2 mb-3">
+          <i class="bi bi-leaf me-1 text-accent-2"></i> Rescue food · Feed communities
+        </span>
+        <h1 class="display-4 fw-bold text-white hero-title mb-3">
+          Your <em class="text-accent-2 not-italic">leftovers</em> can become someone’s meal
+        </h1>
+        <p class="lead text-white-75 mb-4 hero-lead">
+          PlateForward links homes, cafés, and events with verified NGOs—so good food stays out of the bin and reaches people who need it.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#donate" class="btn btn-accent btn-lg rounded-pill px-4 shadow-soft">
+            <i class="bi bi-box-seam me-2"></i>Offer surplus food
+          </a>
+          <a href="#how" class="btn btn-outline-light btn-lg rounded-pill px-4">
+            See how it works
+          </a>
+        </div>
+        <div class="d-flex flex-wrap gap-4 mt-5 pt-2 hero-stats-mini">
+          <div>
+            <div class="fs-4 fw-semibold text-white">12k+</div>
+            <div class="small text-white-50">Meals redirected</div>
+          </div>
+          <div class="vr text-white-25 d-none d-sm-block"></div>
+          <div>
+            <div class="fs-4 fw-semibold text-white">180+</div>
+            <div class="small text-white-50">Partner NGOs</div>
+          </div>
+          <div class="vr text-white-25 d-none d-sm-block"></div>
+          <div>
+            <div class="fs-4 fw-semibold text-white">48h</div>
+            <div class="small text-white-50">Avg. match time</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="hero-card p-1 rounded-4 shadow-strong mx-auto" style="max-width: 520px;">
+          <div class="rounded-4 overflow-hidden position-relative hero-image-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1200&q=80"
+              alt="Volunteers packing food for community distribution"
+              class="img-fluid w-100 hero-img"
+              loading="eager"
+              width="1200"
+              height="800">
+            <div class="hero-img-caption position-absolute bottom-0 start-0 end-0 p-3 p-md-4">
+              <div class="d-flex align-items-center gap-3">
+                <div class="rounded-circle bg-accent d-flex align-items-center justify-content-center flex-shrink-0" style="width:48px;height:48px;">
+                  <i class="bi bi-shield-check text-dark fs-5"></i>
+                </div>
+                <div>
+                  <div class="small text-white-50">Verified partners</div>
+                  <div class="text-white fw-semibold">Food safety &amp; dignity first</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path fill="var(--surface)" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"/></svg>
+  </div>
+</section>
+
+<section id="why" class="py-5 section-surface">
+  <div class="container py-lg-4">
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-8">
+        <h2 class="section-title mb-3">Why redirect food instead of tossing it?</h2>
+        <p class="text-muted lead-sub">Globally, tons of edible food is discarded while many people face hunger. Small acts—one tray from a party, extra catering, or tonight’s leftovers—add up when logistics are simple and safe.</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-soft card-lift rounded-4 p-4 bg-white">
+          <div class="icon-tile rounded-3 mb-3 text-accent"><i class="bi bi-globe-americas fs-3"></i></div>
+          <h3 class="h5 fw-semibold mb-2">Cut waste &amp; emissions</h3>
+          <p class="text-muted small mb-0">Food in landfills produces methane. Rescue reduces footprint and honors the resources that grew your meal.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-soft card-lift rounded-4 p-4 bg-white">
+          <div class="icon-tile rounded-3 mb-3 text-accent"><i class="bi bi-people fs-3"></i></div>
+          <h3 class="h5 fw-semibold mb-2">Support neighbors</h3>
+          <p class="text-muted small mb-0">NGOs distribute to shelters, community kitchens, and families—often the same week you donate.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-soft card-lift rounded-4 p-4 bg-white">
+          <div class="icon-tile rounded-3 mb-3 text-accent"><i class="bi bi-clipboard2-pulse fs-3"></i></div>
+          <h3 class="h5 fw-semibold mb-2">Guided safety</h3>
+          <p class="text-muted small mb-0">We share temperature and packaging tips so donations stay wholesome from your kitchen to theirs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="py-5 bg-pattern">
+  <div class="container py-lg-4">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <h2 class="section-title mb-3">How PlateForward works</h2>
+        <p class="text-muted mb-4">Four quick steps—from your surplus to a verified NGO pickup. No complicated forms; we only ask what partners need to coordinate.</p>
+        <ul class="list-unstyled steps-list">
+          <li class="d-flex gap-3 mb-4">
+            <span class="step-num">1</span>
+            <div>
+              <strong class="d-block mb-1">Tell us what you have</strong>
+              <span class="text-muted small">Type of food, quantity, and when it’s ready for pickup.</span>
+            </div>
+          </li>
+          <li class="d-flex gap-3 mb-4">
+            <span class="step-num">2</span>
+            <div>
+              <strong class="d-block mb-1">We match an NGO</strong>
+              <span class="text-muted small">Based on location, capacity, and dietary needs.</span>
+            </div>
+          </li>
+          <li class="d-flex gap-3 mb-4">
+            <span class="step-num">3</span>
+            <div>
+              <strong class="d-block mb-1">Coordinate pickup</strong>
+              <span class="text-muted small">You’ll get a call or email with timing and packaging notes.</span>
+            </div>
+          </li>
+          <li class="d-flex gap-3">
+            <span class="step-num">4</span>
+            <div>
+              <strong class="d-block mb-1">Food reaches people</strong>
+              <span class="text-muted small">Your donation is logged for impact reporting (aggregated, private).</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-7">
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <div class="rounded-4 overflow-hidden shadow-soft h-100 min-h-200">
+              <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773f?auto=format&fit=crop&w=800&q=80" alt="Community food sharing" class="img-fluid w-100 h-100 object-cover" loading="lazy" width="800" height="600">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="rounded-4 overflow-hidden shadow-soft h-100 min-h-200 mt-sm-4">
+              <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80" alt="Fresh vegetables and produce" class="img-fluid w-100 h-100 object-cover" loading="lazy" width="800" height="600">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="alert border-0 rounded-4 mb-0" style="background: linear-gradient(135deg, rgba(45, 106, 79, 0.12), rgba(212, 163, 115, 0.15));">
+              <div class="d-flex gap-3 align-items-start">
+                <i class="bi bi-info-circle-fill text-deep fs-4 flex-shrink-0"></i>
+                <div>
+                  <strong class="d-block text-deep mb-1">Donation tip</strong>
+                  <span class="small text-muted">Keep hot food hot and cold food cold; use sealed containers when possible. When in doubt, our partner will advise.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="impact" class="py-5 section-surface">
+  <div class="container py-lg-3">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-6 order-lg-2">
+        <h2 class="section-title mb-3">Impact you can feel</h2>
+        <p class="text-muted mb-4">Every listing helps NGOs plan routes and volunteers. Together we turn surplus into dignity—not landfill.</p>
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="stat-pill rounded-4 p-4 text-center h-100">
+              <div class="display-6 fw-bold text-deep">3.2t</div>
+              <div class="small text-muted">Food rescued (demo)</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="stat-pill rounded-4 p-4 text-center h-100">
+              <div class="display-6 fw-bold text-deep">920</div>
+              <div class="small text-muted">Families supported</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <div class="rounded-4 overflow-hidden shadow-strong">
+          <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1000&q=80" alt="Hands joining in community" class="img-fluid w-100" loading="lazy" width="1000" height="667">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="donate" class="py-5 donate-section text-white position-relative overflow-hidden">
+  <div class="donate-bg" aria-hidden="true"></div>
+  <div class="container position-relative py-lg-4">
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-8 text-center">
+        <h2 class="text-white section-title mb-3">Offer your surplus food</h2>
+        <p class="text-white-75 mb-0">Submit the details below. Required fields help NGOs respond quickly. We never publish your address publicly.</p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card border-0 shadow-strong rounded-4 overflow-hidden">
+          <div class="card-body p-4 p-md-5 text-dark">
+            <form method="post" action="{{ url_for('donate') }}" class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-medium" for="donor_name">Your name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control form-control-lg rounded-3" id="donor_name" name="donor_name" required placeholder="Jane Doe">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-medium" for="email">Email <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control form-control-lg rounded-3" id="email" name="email" required placeholder="you@example.com">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-medium" for="phone">Phone <span class="text-danger">*</span></label>
+                  <input type="tel" class="form-control form-control-lg rounded-3" id="phone" name="phone" required placeholder="+1 …">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-medium" for="preferred_date">Preferred pickup date <span class="text-danger">*</span></label>
+                  <input type="date" class="form-control form-control-lg rounded-3" id="preferred_date" name="preferred_date" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-medium" for="food_type">Food type <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control form-control-lg rounded-3" id="food_type" name="food_type" required placeholder="e.g. vegetarian meals, bread, fruit">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-medium" for="quantity">Quantity / portions <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control form-control-lg rounded-3" id="quantity" name="quantity" required placeholder="e.g. 20 meals, 3 trays">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-medium" for="pickup_address">Pickup address <span class="text-danger">*</span></label>
+                  <textarea class="form-control rounded-3" id="pickup_address" name="pickup_address" rows="2" required placeholder="Street, city, landmarks for drivers"></textarea>
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-medium" for="message">Notes (allergens, packaging, timing)</label>
+                  <textarea class="form-control rounded-3" id="message" name="message" rows="3" placeholder="Optional details for the NGO"></textarea>
+                </div>
+              </div>
+              <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mt-4">
+                <p class="small text-muted mb-0"><i class="bi bi-lock me-1"></i> Submissions are stored securely for coordination only.</p>
+                <button type="submit" class="btn btn-accent btn-lg rounded-pill px-5">
+                  <i class="bi bi-send-fill me-2"></i>Submit offer
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ngos" class="py-5 section-surface">
+  <div class="container py-lg-4">
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-5">
+        <h2 class="section-title mb-3">For NGOs &amp; community kitchens</h2>
+        <p class="text-muted mb-4">Join our network to receive surplus food alerts in your area. We verify organizations to protect donors and recipients.</p>
+        <ul class="list-unstyled text-muted small">
+          <li class="d-flex gap-2 mb-2"><i class="bi bi-check-circle-fill text-deep"></i> Dashboard access (coming soon)</li>
+          <li class="d-flex gap-2 mb-2"><i class="bi bi-check-circle-fill text-deep"></i> Pickup scheduling support</li>
+          <li class="d-flex gap-2"><i class="bi bi-check-circle-fill text-deep"></i> Aggregated impact metrics</li>
+        </ul>
+      </div>
+      <div class="col-lg-7">
+        <div class="card border-0 shadow-soft rounded-4">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="h5 fw-semibold mb-3">Register your organization</h3>
+            <form method="post" action="{{ url_for('ngo_register') }}">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="org_name">Organization name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control rounded-3" id="org_name" name="org_name" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="contact_name">Contact person <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control rounded-3" id="contact_name" name="contact_name" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="ngo_email">Email <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control rounded-3" id="ngo_email" name="ngo_email" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="ngo_phone">Phone <span class="text-danger">*</span></label>
+                  <input type="tel" class="form-control rounded-3" id="ngo_phone" name="ngo_phone" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="city">City / region served <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control rounded-3" id="city" name="city" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="ngo_notes">Mission &amp; capacity notes</label>
+                  <textarea class="form-control rounded-3" id="ngo_notes" name="ngo_notes" rows="3" placeholder="Who you serve, typical pickup windows, refrigeration capacity…"></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-deep text-white rounded-pill px-4 mt-3">Request partnership</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="py-5 bg-pattern">
+  <div class="container py-lg-3">
+    <h2 class="section-title text-center mb-5">Frequently asked questions</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="accordion accordion-flush faq-accordion" id="faqAccordion">
+          <div class="accordion-item border-0 mb-3 rounded-4 shadow-soft overflow-hidden bg-white">
+            <h3 class="accordion-header">
+              <button class="accordion-button rounded-0 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">What food can I donate?</button>
+            </h3>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted small">Prepared meals, bakery items, produce, and packaged goods that are still safe to eat. Avoid items that have been sitting at room temperature too long or show spoilage.</div>
+            </div>
+          </div>
+          <div class="accordion-item border-0 mb-3 rounded-4 shadow-soft overflow-hidden bg-white">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed rounded-0 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">Is there a fee?</button>
+            </h3>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted small">No. PlateForward is built for community benefit. NGOs may have their own logistics costs—we’re transparent in every match.</div>
+            </div>
+          </div>
+          <div class="accordion-item border-0 mb-3 rounded-4 shadow-soft overflow-hidden bg-white">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed rounded-0 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">How fast will someone pick up?</button>
+            </h3>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted small">Many pickups happen within 24–48 hours depending on location and food type. Urgent perishables get priority matching.</div>
+            </div>
+          </div>
+          <div class="accordion-item border-0 rounded-4 shadow-soft overflow-hidden bg-white">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed rounded-0 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">Can businesses use this?</button>
+            </h3>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted small">Yes—cafés, offices, caterers, and grocers are welcome. Use the same form and mention your business name in notes.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
